@@ -1,4 +1,4 @@
 # anino_exam
  
-How to edit:/
+How to edit:\
 Reels:
