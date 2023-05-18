@@ -16,11 +16,15 @@ public class MoneyManager : MonoBehaviour
 
     public void BetMoney()
     {
-        money -= bet.GetBet();
-        moneyText.text = $"Coins: {money}";
+        if(money >= bet.GetBet())
+        {
+            money -= bet.GetBet();
+            moneyText.text = $"Coins: {money}";
+        }
+        
     }
 
-    public void GetWinnings(int changeVal)
+    public void AddWinnings(int changeVal)
     {
         money += changeVal;
         moneyText.text = $"Coins: {money}";

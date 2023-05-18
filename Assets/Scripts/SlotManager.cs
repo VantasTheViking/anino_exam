@@ -17,7 +17,7 @@ public class SlotManager : MonoBehaviour
     [System.Serializable]
     public class ReelPositionSerializable
     {
-        public List<ReelPosition> reelPatern;
+        public List<ReelPosition> reelPattern;
     }
     [SerializeField] List<ReelPositionSerializable> reelPatterns;
 
@@ -29,7 +29,12 @@ public class SlotManager : MonoBehaviour
     [SerializeField] List<int> symbols;
     [SerializeField] List<ComboSerializable> payouts;
 
-    int totalWinnings;
+    [SerializeField] MoneyManager moneyManager;
+    [SerializeField] WinManager winManager;
+    int startingSymbol;
+    public int totalWinnings;
+    int winCount;
+    bool isCombo;
     int comboCount;
 
 
@@ -50,7 +55,7 @@ public class SlotManager : MonoBehaviour
     
     private void Update()
     {
-        if (canSpin == false)
+        if (canSpin == false && moneyManager.GetMoney() > 0)
         {
             isSpinning = false;
 
@@ -65,7 +70,9 @@ public class SlotManager : MonoBehaviour
             if (isSpinning == false)
             {
                 //Check Win Patterns
+                CheckPatterns();
                 //Add Win Money
+                UpdateWin();
 
                 canSpin = true;
                 spinButton.interactable = true;
@@ -73,5 +80,80 @@ public class SlotManager : MonoBehaviour
             }
         }
     }
-    
+
+    public void UpdateWin()
+    {
+        //Debug.Log(totalWinnings);
+        moneyManager.AddWinnings(totalWinnings);
+        winManager.SetWins(winCount);
+        totalWinnings = 0;
+        winCount = 0;
+    }
+    public void CheckPatterns()
+    {
+        foreach(ReelPositionSerializable r in reelPatterns)
+        {
+            SetStartingSymbol(r.reelPattern[0]);
+
+            comboCount = 0;
+            isCombo = true;
+            for(int i = 0; i <= 4; i++)
+            {
+                if (isCombo)
+                {
+                    if (CheckPosToReel(r.reelPattern[i], reels[i]))
+                    {
+                        comboCount++;
+                    }
+                    else isCombo = false;
+                }
+            }
+
+            totalWinnings += AddPatternPrize() * betVal;
+            
+            
+        }
+    }
+
+    public int AddPatternPrize()
+    {
+        if (payouts[symbols.IndexOf(startingSymbol)].comboPayouts[comboCount - 1] > 0)
+        {
+            winCount++;
+        }
+        return payouts[symbols.IndexOf(startingSymbol)].comboPayouts[comboCount - 1];
+
+    }
+    public void SetStartingSymbol(ReelPosition rp)
+    {
+        if (rp == ReelPosition.Top)
+        {
+            startingSymbol = reels[0].GetTopRowVal();
+        }
+        else if (rp == ReelPosition.Bot)
+        {
+            startingSymbol = reels[0].GetBotRowVal();
+        }
+        else if (rp == ReelPosition.Mid)
+        {
+            startingSymbol = reels[0].GetMidRowVal();
+        }
+    }
+    public bool CheckPosToReel(ReelPosition rp, ReelBehaviour reel)
+    {
+        if (rp == ReelPosition.Top)
+        {
+            return reel.GetTopRowVal() == startingSymbol;
+        }
+        else if (rp == ReelPosition.Bot)
+        {
+            return reel.GetBotRowVal() == startingSymbol;
+        }
+        else if (rp == ReelPosition.Mid)
+        {
+            return reel.GetMidRowVal() == startingSymbol;
+        }
+        else return false;
+
+    }
 }
