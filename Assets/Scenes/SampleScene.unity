@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 47071120}
   - component: {fileID: 47071119}
   m_Layer: 5
-  m_Name: Reel3
+  m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 380354154}
   - component: {fileID: 380354153}
   m_Layer: 5
-  m_Name: Reel1
+  m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1941,7 +1941,7 @@ GameObject:
   - component: {fileID: 635927800}
   - component: {fileID: 635927801}
   m_Layer: 5
-  m_Name: Rows3
+  m_Name: Reel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2497,7 +2497,7 @@ GameObject:
   - component: {fileID: 779373402}
   - component: {fileID: 779373401}
   m_Layer: 5
-  m_Name: Reel4
+  m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2980,7 +2980,7 @@ GameObject:
   - component: {fileID: 919588651}
   - component: {fileID: 919588650}
   m_Layer: 5
-  m_Name: Reel2
+  m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3360,7 +3360,7 @@ GameObject:
   - component: {fileID: 1067990205}
   - component: {fileID: 1067990206}
   m_Layer: 5
-  m_Name: Rows1
+  m_Name: Reel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3478,7 +3478,7 @@ GameObject:
   - component: {fileID: 1170338400}
   - component: {fileID: 1170338401}
   m_Layer: 5
-  m_Name: Rows2
+  m_Name: Reel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4256,7 +4256,7 @@ GameObject:
   - component: {fileID: 1541151088}
   - component: {fileID: 1541151087}
   m_Layer: 5
-  m_Name: Reel5
+  m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4332,7 +4332,7 @@ GameObject:
   - component: {fileID: 1595561676}
   - component: {fileID: 1595561677}
   m_Layer: 5
-  m_Name: Rows4
+  m_Name: Reel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4486,7 +4486,7 @@ GameObject:
   - component: {fileID: 1606481071}
   - component: {fileID: 1606481072}
   m_Layer: 5
-  m_Name: Rows5
+  m_Name: Reel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4648,6 +4648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   betText: {fileID: 237173521}
   money: {fileID: 1951777266}
+  betValue: 0
 --- !u!1 &1666204450
 GameObject:
   m_ObjectHideFlags: 0

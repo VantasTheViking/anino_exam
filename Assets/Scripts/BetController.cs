@@ -7,7 +7,7 @@ public class BetController : MonoBehaviour
 {
     [SerializeField] TMP_Text betText;
     [SerializeField] MoneyManager money;
-    int betValue;
+    public int betValue;
 
 
     private void Start()
@@ -21,7 +21,7 @@ public class BetController : MonoBehaviour
         {
             betValue += 100;
         }
-        betText.text = betValue.ToString();
+        SetText();
     }
     public void DecreaseBet()
     {
@@ -29,6 +29,11 @@ public class BetController : MonoBehaviour
         {
             betValue -= 100;
         }
+        SetText();
+    }
+
+    public void SetText()
+    {
         betText.text = betValue.ToString();
     }
     public int GetBet()

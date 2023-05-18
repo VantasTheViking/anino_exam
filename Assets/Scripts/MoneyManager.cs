@@ -19,6 +19,8 @@ public class MoneyManager : MonoBehaviour
         if(money >= bet.GetBet())
         {
             money -= bet.GetBet();
+            bet.betValue = 100;
+            bet.SetText();
             moneyText.text = $"Coins: {money}";
         }
         

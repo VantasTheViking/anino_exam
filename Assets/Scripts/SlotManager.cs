@@ -37,7 +37,7 @@ public class SlotManager : MonoBehaviour
     bool isCombo;
     int comboCount;
 
-
+    //Sets the reels to spin
     public void Spin()
     {
         betVal = bet.GetBet();
@@ -81,9 +81,9 @@ public class SlotManager : MonoBehaviour
         }
     }
 
+    //Updates stats with the spin's results
     public void UpdateWin()
     {
-        //Debug.Log(totalWinnings);
         moneyManager.AddWinnings(totalWinnings);
         winManager.SetWins(winCount);
         totalWinnings = 0;
@@ -124,6 +124,8 @@ public class SlotManager : MonoBehaviour
         return payouts[symbols.IndexOf(startingSymbol)].comboPayouts[comboCount - 1];
 
     }
+
+    //Find the starting symbol for the line pattern
     public void SetStartingSymbol(ReelPosition rp)
     {
         if (rp == ReelPosition.Top)
@@ -139,6 +141,8 @@ public class SlotManager : MonoBehaviour
             startingSymbol = reels[0].GetMidRowVal();
         }
     }
+
+    //checks the current reel's symbol if it matches the starting symbol of the pattern.
     public bool CheckPosToReel(ReelPosition rp, ReelBehaviour reel)
     {
         if (rp == ReelPosition.Top)
