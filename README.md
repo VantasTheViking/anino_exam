@@ -10,5 +10,11 @@ While functionally, the project is a slot machine. It lacks "juice", and would i
 
 Some quality of life improvements could also be added like an auto-spin feature, with an option to stop if player money goes below a certain player set point. A feature could also be added to make the game unique to other slot machine games, like an art gallery that has unique artwork based on the games theme that you can unlock by getting highly specific patterns with specific symbols. Some voiced dialogue from a game character that cheers the player on as they get more wins.
 
+Scalability:
+In terms of scalability with multiple people playing the game at the same time, I believe it should be able to handle it, as I have avoided the use of computationally complex functions like find() and mostly avoided the use of loops in the update function, outside of detecting when all the reels have stopped.
+
+Flexibility:
+In terms of flexibility, I believe its flexible to enable the additions of more features including the proposed improvements to the project.
+
 
 
