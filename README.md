@@ -16,5 +16,7 @@ In terms of scalability with multiple people playing the game at the same time, 
 Flexibility:
 In terms of flexibility, I believe its flexible to enable the additions of more features including the proposed improvements to the project.
 
+MVC:
+In the project, I used model in the form of the SlotManager, MoneyManager, and ReelBehaviour as they contain the key stats of the game like, player money, pattern prize, reel values. View is used in the UI to display the variables from the model to the player, and Control in the buttons which takes player input to manipulate the values in the model.
 
 
